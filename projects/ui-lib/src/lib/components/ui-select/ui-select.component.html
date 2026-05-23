@@ -1,0 +1,28 @@
+<div class="flex flex-col gap-2 w-full">
+  <label *ngIf="label()" class="text-xs font-mono font-bold text-lime-500 uppercase tracking-widest ml-1">
+    {{ label() }}
+  </label>
+
+  <div class="relative">
+    <select
+      [disabled]="disabled() || loading()"
+      [value]="value() || ''"
+      (change)="onSelectChange($event)"
+      class="w-full bg-slate-800 border-2 border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block p-3 appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+      [ngClass]="{'animate-pulse border-lime-900': loading()}"
+    >
+      <option value="" disabled selected>{{ placeholder() }}</option>
+      
+      <option *ngFor="let opt of options()" [value]="opt.value">
+        {{ opt.label }}
+      </option>
+    </select>
+
+    <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-lime-500">
+      <svg *ngIf="!loading()" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+      </svg>
+      <div *ngIf="loading()" class="w-4 h-4 border-2 border-lime-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  </div>
+</div>
