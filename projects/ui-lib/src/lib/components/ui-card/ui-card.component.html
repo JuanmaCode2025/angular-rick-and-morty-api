@@ -1,0 +1,27 @@
+<div 
+  class="rounded-xl overflow-hidden bg-slate-800 text-white transition-all duration-200"
+  [ngClass]="{
+    'border border-transparent shadow-none': elevation() === 'flat',
+    'shadow-xl shadow-black/40 border border-slate-700': elevation() === 'raised',
+    'border-2 border-lime-500/50 shadow-md shadow-lime-500/10': elevation() === 'outlined'
+  }"
+>
+  
+  <div 
+    (click)="onHeaderClick()"
+    class="p-5 border-b border-slate-700/60 bg-slate-800/40 cursor-pointer hover:bg-slate-700/30 transition-colors"
+  >
+    <h3 class="text-xl font-bold tracking-wide text-lime-400">
+      {{ title() }}
+    </h3>
+    
+    <p *ngIf="subtitle()" class="text-sm text-slate-400 mt-1 font-mono">
+      {{ subtitle() }}
+    </p>
+  </div>
+
+  <div class="p-6 text-slate-300">
+    <ng-content></ng-content>
+  </div>
+
+</div>
