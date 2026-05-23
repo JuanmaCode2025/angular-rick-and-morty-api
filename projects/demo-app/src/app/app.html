@@ -1,0 +1,63 @@
+<div class="min-h-screen bg-slate-900 text-white p-10 flex flex-col items-center gap-8">
+  
+  <h1 class="text-3xl font-bold text-lime-400 font-mono tracking-wider text-center">
+    LABORATORIO DE COMPONENTES — RICK & MORTY
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+    
+    <ui-card title="C-137" subtitle="Dimensión Origin" elevation="flat">
+      <p class="text-sm text-slate-400 mb-4">
+        Esta es una tarjeta plana. Todo lo que escribes aquí adentro cae directo en el hueco del ng-content.
+      </p>
+      <ui-button label="Explorar Dimensión" variant="secondary" size="sm"></ui-button>
+    </ui-card>
+
+    <ui-card 
+      title="Rick Sanchez" 
+      subtitle="Científico Loco" 
+      elevation="raised"
+      (headerClicked)="alDarClickHeader()">
+      
+      <p class="text-sm text-slate-300 mb-4 font-mono">
+        ESTADO: Vivo <br>
+        ESPECIE: Humano
+      </p>
+      <ui-button label="Ver Datos de Escáner" variant="primary" size="md" (clicked)="alDarClick()"></ui-button>
+    </ui-card>
+
+    <ui-card title="Pistola de Portales" subtitle="Tecnología Clasificada" elevation="outlined">
+      <p class="text-sm text-slate-400 mb-4">
+        Esta variante resalta los bordes con un brillo verde lima fosforescente muy fiel al estilo de la serie.
+      </p>
+      <ui-button label="Cargando Batería..." variant="danger" size="sm" [loading]="true"></ui-button>
+    </ui-card>
+
+  </div>
+
+  <div class="w-full max-w-md mt-6 p-6 bg-slate-800/50 rounded-2xl border border-slate-700">
+    <ui-select 
+      label="Filtrar por Especie" 
+      placeholder="Selecciona un espécimen..."
+      [options]="[
+        { label: 'Humano', value: 'human' },
+        { label: 'Alienígena', value: 'alien' },
+        { label: 'Robot', value: 'robot' }
+      ]"
+      [loading]="false">
+    </ui-select>
+  </div>
+
+  <div class="w-full max-w-6xl mt-6">
+    <h2 class="text-xl font-bold text-slate-400 font-mono mb-4 flex items-center gap-2">
+      <span>📊</span> REGISTROS DEL ESCÁNER DE ESPECÍMENES
+    </h2>
+    
+    <ui-table 
+      [columns]="columnasPersonajes" 
+      [data]="listaPersonajes" 
+      [loading]="false">
+    </ui-table>
+  </div>
+
+</div>
