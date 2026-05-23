@@ -12,3 +12,5 @@ export * from './lib/models/select.model'; // Importante exportar la interfaz ta
 export * from './lib/components/ui-select/ui-select.component';
 //Exportamos nuestto Nuevo componentes tabla Para que demo-app pueda importarlo
 export * from './lib/components/ui-table/ui-table.component';
+//Exportacion del Servicio 
+export * from './lib/services/rick-morty';

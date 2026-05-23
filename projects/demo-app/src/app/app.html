@@ -40,11 +40,12 @@
       label="Filtrar por Especie" 
       placeholder="Selecciona un espécimen..."
       [options]="[
+        { label: 'Todos los especímenes', value: '' },
         { label: 'Humano', value: 'human' },
-        { label: 'Alienígena', value: 'alien' },
-        { label: 'Robot', value: 'robot' }
+        { label: 'Alienígena', value: 'alien' }
       ]"
-      [loading]="false">
+      [loading]="estaCargando()"
+      (valueChange)="alCambiarEspecie($event)"> 
     </ui-select>
   </div>
 
@@ -55,8 +56,8 @@
     
     <ui-table 
       [columns]="columnasPersonajes" 
-      [data]="listaPersonajes" 
-      [loading]="false">
+      [data]="personajesFiltrados()" 
+      [loading]="estaCargando()">
     </ui-table>
   </div>
 

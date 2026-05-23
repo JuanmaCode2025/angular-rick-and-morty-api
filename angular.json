@@ -45,13 +45,18 @@
           "options": {
             "browser": "projects/demo-app/src/main.ts",
             "tsConfig": "projects/demo-app/tsconfig.app.json",
+            "polyfills": [
+              "zone.js"
+            ],
             "assets": [
               {
                 "glob": "**/*",
                 "input": "projects/demo-app/public"
               }
             ],
-            "styles": ["projects/demo-app/src/styles.css"]
+            "styles": [
+              "projects/demo-app/src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
