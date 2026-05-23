@@ -1,4 +1,4 @@
-# 🪐 CITADEL COMMAND CENTER — LABORATORIO DE COMPONENTES DE ANGULAR
+# 🪐 LABORATORIO DE COMPONENTES DE ANGULAR
 
 Este proyecto ha sido desarrollado como una **Prueba Técnica de Angular** avanzada. Consiste en un ecosistema monorrepo modular que consume la API pública de **Rick & Morty**, diseñado bajo estándares rigurosos de arquitectura limpia, reactividad fina y una interfaz visual inmersiva de estilo **HUD Cyberpunk** (*Centro de Comando de la Ciudadela*).
 
