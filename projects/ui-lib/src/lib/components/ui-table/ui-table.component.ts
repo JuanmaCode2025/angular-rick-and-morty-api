@@ -1,11 +1,6 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input, Output, EventEmitter } from '@angular/core'; // ◄--- Agregamos Output y EventEmitter aquí
 import { CommonModule } from '@angular/common';
 
-/**
- * Interfaz para definir la estructura de cada columna.
- * 'key' representa la propiedad del objeto (ej: 'status') 
- * y 'label' es el título visible (ej: 'Estado').
- */
 export interface TableColumn {
   key: string;
   label: string;
@@ -16,19 +11,14 @@ export interface TableColumn {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './ui-table.component.html',
-  styleUrl: './ui-table.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './ui-table.component.css'
 })
 export class UiTableComponent {
-  
-  // === INPUTS CON SIGNALS (Obligatorios para recibir datos externos) ===
-
-  /** Configuración de las columnas que va a renderizar la tabla */
-  columns = input.required<TableColumn[]>();
-
-  /** Array genérico con los objetos/datos puros que se van a listar */
-  data = input.required<any[]>();
-
-  /** Estado de carga visual */
+  // Tus inputs modernos basados en Signals (estos se quedan igual porque sí los reconoció)
+  columns = input<TableColumn[]>([]);
+  data = input<any[]>([]);
   loading = input<boolean>(false);
+
+  // 👇 FIX DEFINITIVO: Usamos la declaración clásica con EventEmitter para asegurar compatibilidad
+  @Output() actionTriggered = new EventEmitter<{ action: string; row: any }>();
 }

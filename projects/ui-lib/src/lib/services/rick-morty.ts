@@ -1,8 +1,7 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
-// Estructura de un personaje según la API oficial
 export interface Character {
   id: number;
   name: string;
@@ -11,7 +10,6 @@ export interface Character {
   image: string;
 }
 
-// Estructura de la respuesta general de la API
 interface ApiResponse {
   results: Character[];
 }
@@ -20,16 +18,19 @@ interface ApiResponse {
   providedIn: 'root'
 })
 export class RickMortyService {
-  // Inyección moderna de dependencias en Angular
   private http = inject(HttpClient); 
   private apiUrl = 'https://rickandmortyapi.com/api/character';
 
   /**
-   * Obtiene todos los personajes desde la API de Rick y Morty
-   * Usamos .pipe(map(...)) para extraer solo el array de 'results' que nos interesa
+   * Obtiene los personajes aplicando filtros opcionales por URL
    */
-  getCharacters(): Observable<Character[]> {
-    return this.http.get<ApiResponse>(this.apiUrl).pipe(
+  getCharacters(status?: string): Observable<Character[]> {
+    let params = new HttpParams();
+    if (status) {
+      params = params.set('status', status); // Añade ?status=alive o ?status=dead a la URL
+    }
+
+    return this.http.get<ApiResponse>(this.apiUrl, { params }).pipe(
       map(response => response.results)
     );
   }
