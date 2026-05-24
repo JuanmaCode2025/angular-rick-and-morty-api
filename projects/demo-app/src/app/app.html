@@ -19,8 +19,6 @@
       placeholder="Elige un recurso..."
       [options]="[
         { label: '👤 Personajes (Especímenes)', value: 'characters' },
-        { label: '🪐 Ubicaciones (Dimensiones)', value: 'locations' },
-        { label: '🎬 Episodios (Líneas Temporales)', value: 'episodes' }
       ]"
       [loading]="estaCargando()"
       (valueChange)="alCambiarRecurso($event)"> 
