@@ -1,13 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RickMorty } from './rick-morty';
+// CORRECCIÓN AQUÍ: Cambiar 'RickMorty' por 'RickMortyService'
+import { RickMortyService } from './rick-morty'; 
 
-describe('RickMorty', () => {
-  let service: RickMorty;
+describe('RickMortyService', () => {
+  // CORRECCIÓN AQUÍ: Cambiar el tipo de la variable
+  let service: RickMortyService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RickMorty);
+    // CORRECCIÓN AQUÍ: Inyectar la clase correcta
+    service = TestBed.inject(RickMortyService);
   });
 
   it('should be created', () => {
