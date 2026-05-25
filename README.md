@@ -119,6 +119,13 @@ La bandera `-o` abrirá automáticamente el navegador.
 
 ---
 
+##  ⚙️  Ejecución De las Pruebas Unitarias
+
+El Sigiente Comando le muestra las Prubas Unitarias de lo componentes Card y button
+```bash
+npm run test -- --watch  
+```
+
 # 📚 3. API de Componentes (`ui-lib`)
 
 # 🎴 `<ui-card>`
@@ -389,4 +396,8 @@ JSDoc aplicado en toda API pública.
 # 🚀 Estado del Proyecto
 
 🟢 Laboratorio multiversal completamente operativo y listo para despliegue.
+##  📌 Link Del Despliegue del Proyecto en Render:
+```bash
+https://angular-rick-and-morty-api.onrender.com/
+```
 
