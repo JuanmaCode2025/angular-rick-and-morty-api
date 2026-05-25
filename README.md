@@ -121,7 +121,7 @@ La bandera `-o` abrirá automáticamente el navegador.
 
 ##  ⚙️  Ejecución De las Pruebas Unitarias
 
-El Sigiente Comando le muestra las Prubas Unitarias de lo componentes Card y button
+El siguiente comando le muestra las pruebas unitarias de los componentes Card y Button
 ```bash
 npm run test -- --watch  
 ```
